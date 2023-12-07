@@ -40,7 +40,6 @@ catch [Microsoft.PowerShell.Commands.UserNotFoundException] {
 # error handeler
 catch {
     "An unspecifed error occured" | Write-Error
-    Exit # Stop Powershell! 
 }
 
 
@@ -53,7 +52,6 @@ try {
 
 catch {
     "Firewall is disabled" | Write-Error
-    Exit # Stop Powershell! 
 }
 
 
@@ -68,12 +66,15 @@ catch {
 # }
 
 
+try {
+    Write-Verbose "Searching for LanguageList"
+    Get-WinUserLanguageList | Where-Object {$_.Languagetag -like "nl-BE"}
+    Write-Verbose '"nl-BE" IS in LanguageList'
+}
 
-
-
-
-
-
+catch {
+    '"nl-BE" NOT in LanguageList' | Write-Error
+}
 
 
 Describe 'https://sinners.be is available' {
