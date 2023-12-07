@@ -43,3 +43,5 @@ At the end of the Pester test, write information about your Pester test to one o
 [Checking if a local user account/ group exists or not with Powershell](https://stackoverflow.com/questions/49595003/checking-if-a-local-user-account-group-exists-or-not-with-powershell)
 
 [Current keyboard layout via cmd or powershell](https://community.spiceworks.com/topic/2240069-current-keyboard-layout-via-cmd-or-powershell)
+
+[Get-Package ](https://learn.microsoft.com/en-us/powershell/module/packagemanagement/get-package?view=powershellget-2.x)

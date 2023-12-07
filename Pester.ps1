@@ -69,6 +69,7 @@ catch {
 
 
 # Microsoft Visual Studio Code is installed
+# https://learn.microsoft.com/en-us/powershell/module/packagemanagement/get-package?view=powershellget-2.x
 Describe 'Microsoft Visual Studio Code is installed' {
 
 # Look for Microsoft Visual Studio Code package
