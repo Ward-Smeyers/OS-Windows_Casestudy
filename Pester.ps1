@@ -65,7 +65,8 @@ catch {
 # }
 # }
 
-
+# If your keyboard layout is "Belgian (period) or not.
+# https://community.spiceworks.com/topic/2240069-current-keyboard-layout-via-cmd-or-powershell
 try {
     Write-Verbose "Searching for LanguageList"
     Get-WinUserLanguageList | Where-Object {$_.Languagetag -like "nl-BE"}

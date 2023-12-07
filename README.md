@@ -24,7 +24,7 @@ This documentation was made with and for windows 10 enterprise. And goes over th
 -	Whether the firewall is on
 -	Whether the virtual box guest additions are installed in the virtual machine.
 -	How long your device can work with a trial edition.
--	If your keyboard layout is "Belgian (period) or not.
+-	If the keyboard layout "Belgian (period) is in the LanguageList.
 
 And
 
@@ -41,3 +41,5 @@ At the end of the Pester test, write information about your Pester test to one o
 [Ping tests with Pester](https://richardspowershellblog.wordpress.com/2018/10/15/ping-tests-with-pester/)
 
 [Checking if a local user account/ group exists or not with Powershell](https://stackoverflow.com/questions/49595003/checking-if-a-local-user-account-group-exists-or-not-with-powershell)
+
+[Current keyboard layout via cmd or powershell](https://community.spiceworks.com/topic/2240069-current-keyboard-layout-via-cmd-or-powershell)
