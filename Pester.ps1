@@ -67,9 +67,11 @@ catch {
     '"nl-BE" NOT in LanguageList' | Write-Error
 }
 
+
+# Microsoft Visual Studio Code is installed
 Describe 'Microsoft Visual Studio Code is installed' {
 
-# Google DNS server
+# Look for Microsoft Visual Studio Code package
 It 'Microsoft Visual Studio Code should be installed' {
 get-package "Microsoft Visual Studio Code (user)" |
 Should Be $true
