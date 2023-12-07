@@ -55,16 +55,6 @@ catch {
 }
 
 
-# # Whether the firewall is off
-# Describe 'Whether the firewall is on' {
-
-# # 
-# It 'Enabled should be true' {
-# Get-NetFirewallProfile | Select-Object Enabled
-# Should Be $true
-# }
-# }
-
 # If your keyboard layout is "Belgian (period) or not.
 # https://community.spiceworks.com/topic/2240069-current-keyboard-layout-via-cmd-or-powershell
 try {
@@ -75,6 +65,15 @@ try {
 
 catch {
     '"nl-BE" NOT in LanguageList' | Write-Error
+}
+
+Describe 'Microsoft Visual Studio Code is installed' {
+
+# Google DNS server
+It 'Microsoft Visual Studio Code should be installed' {
+get-package "Microsoft Visual Studio Code (user)" |
+Should Be $true
+}
 }
 
 
