@@ -54,6 +54,17 @@ catch {
     "Firewall is disabled" | Write-Error
 }
 
+# Werkt niet !!!
+# check if trile edition has expired
+# Describe 'GracePeriod' {
+
+#     it 'GracePeriod ' {
+#         $ts = Get-WmiObject -Class Win32_TerminalServiceSetting -Namespace "root\CIMV2\TerminalServices"
+#         $ts.GetGracePeriodDays() | should be -gt 0
+#     }
+# }
+
+
 
 # If your keyboard layout is "Belgian (period) or not.
 # https://community.spiceworks.com/topic/2240069-current-keyboard-layout-via-cmd-or-powershell
