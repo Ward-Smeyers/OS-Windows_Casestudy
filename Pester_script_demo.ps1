@@ -1,3 +1,6 @@
+# source
+# https://richardspowershellblog.wordpress.com/2018/10/15/ping-tests-with-pester/
+
 function get-internetconnection {
 
   $prf = Get-NetConnectionProfile -IPv4Connectivity Internet
