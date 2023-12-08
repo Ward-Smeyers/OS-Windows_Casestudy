@@ -26,20 +26,11 @@ Should Be $true
 $USERNAME = "ward"
 
 # Search for $USERNAME in the local users
-try {
-    Write-Verbose "Searching for $($USERNAME) in LocalUser DataBase"
-    Get-LocalUser $USERNAME
-    Write-Verbose "User $($USERNAME) was found"
-}
-
-# If user name not found print
-catch [Microsoft.PowerShell.Commands.UserNotFoundException] {
-    "User $($USERNAME) was not found" | Write-Warning
-}
-
-# error handeler
-catch {
-    "An unspecifed error occured" | Write-Error
+Describe "if user $USERNAME exists"{
+    it "$USERNAME should be a user"{
+        Get-LocalUser $USERNAME |Select-Object name |
+         should be "@{Name=$USERNAME}"
+    }
 }
 
 
