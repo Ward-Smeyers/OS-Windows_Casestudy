@@ -87,6 +87,8 @@ Get-LocalUser $USERNAME |Select-Object name | should be "@{Name=$USERNAME}"
 
 # Links and referenses
 
+[pester.dev](https://pester.dev/docs/quick-start)
+
 [Ping tests with Pester](https://richardspowershellblog.wordpress.com/2018/10/15/ping-tests-with-pester/)
 
 [Checking if a local user account/ group exists or not with Powershell](https://stackoverflow.com/questions/49595003/checking-if-a-local-user-account-group-exists-or-not-with-powershell)
