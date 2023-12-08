@@ -27,7 +27,7 @@ $USERNAME = "ward"
 
 # Search for $USERNAME in the local users
 Describe "if user $USERNAME exists"{
-    it "$USERNAME should be a user"{
+    It "$USERNAME should be a user"{
         Get-LocalUser $USERNAME |Select-Object name |
          should be "@{Name=$USERNAME}"
     }
@@ -35,14 +35,20 @@ Describe "if user $USERNAME exists"{
 
 
 # Whether the firewall is on
-try {
-    Write-Verbose "Searching for firewall"
-    Get-NetFirewallProfile | Select-Object Enabled
-    Write-Verbose "Firewall is Enabled"
-}
-
-catch {
-    "Firewall is disabled" | Write-Error
+# "should be "@{Enabled=True}"" if it is just $true the test allways returns green
+Describe "Whether the firewall is on" {
+    It "Domain Firewall should be enabled" {
+        Get-NetFirewallProfile | where-object {$_.Profile -like "Domain"} | Select-Object Enabled |
+        should be "@{Enabled=True}"
+    }
+    It  "Private Firewall should be enabled" {
+        Get-NetFirewallProfile | where-object {$_.Profile -like "private"} | Select-Object Enabled |
+        should be "@{Enabled=True}"
+    }
+    It  "Public Firewall should be enabled" {
+        Get-NetFirewallProfile | where-object {$_.Profile -like "Public"} | Select-Object Enabled |
+        should be "@{Enabled=True}"
+    }
 }
 
 # Werkt niet !!!
