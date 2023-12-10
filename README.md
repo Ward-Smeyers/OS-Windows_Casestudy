@@ -98,9 +98,9 @@ Get-NetFirewallProfile | where-object {$_.Profile -like "Public"} | Select-Objec
 ```
 
 ## Virtual box guest additions
-
+Test if the VirtualBox Guest Additions are installed
 ```
-¯\_(ツ)_/¯
+get-package "Oracle VM VirtualBox Guest Additions 7.0.12"
 ```
 
 ## Grace Period
@@ -160,6 +160,8 @@ Get-Process "code"
 [Ping tests with Pester](https://richardspowershellblog.wordpress.com/2018/10/15/ping-tests-with-pester/)
 
 [Checking if a local user account/ group exists or not with Powershell](https://stackoverflow.com/questions/49595003/checking-if-a-local-user-account-group-exists-or-not-with-powershell)
+
+[Use PowerShell to Check the License Status of Windows 8](https://devblogs.microsoft.com/scripting/use-powershell-to-check-the-license-status-of-windows-8/)
 
 [Current keyboard layout via cmd or powershell](https://community.spiceworks.com/topic/2240069-current-keyboard-layout-via-cmd-or-powershell)
 
