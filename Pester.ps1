@@ -88,6 +88,17 @@ Describe 'Microsoft Visual Studio Code is installed' {
 }
 
 
+# Microsoft Visual Studio Code is runing
+Describe 'Microsoft Visual Studio Code is runing' {
+
+# Look for Microsoft Visual Studio Code package
+    It 'Microsoft Visual Studio Code should be runing' {
+    Get-Process "code" |
+    Should Be $true
+    }
+}
+
+
 Describe 'https://sinners.be is available' {
 
 ##  tests https://sinners.be is available server
