@@ -13,12 +13,15 @@ This documentation was made with and for windows 10 enterprise. And goes over th
   - [GOAL of the project:](#goal-of-the-project)
   - [Table of contents](#table-of-contents)
   - [Details of het project](#details-of-het-project)
-- [get-member](#get-member)
+- [Get-Member](#get-member)
 - [Pester test](#pester-test)
   - [Describe](#describe)
   - [NAT networking](#nat-networking)
   - [Internet connection](#internet-connection)
   - [Check username](#check-username)
+  - [Firewall](#firewall)
+  - [Virtual box guest additions](#virtual-box-guest-additions)
+  - [GracePeriod](#graceperiod)
 - [Links and referenses](#links-and-referenses)
 
 ## Details of het project
@@ -39,7 +42,7 @@ And
 
 At the end of the Pester test, write information about your Pester test to one of the log files in event viewer.
 
-# get-member
+# Get-Member
 
 Don't forget Get-Member !!! it exists.
 
@@ -83,6 +86,26 @@ Test-Connection -ComputerName 8.8.8.8 -Quiet -Count 1
 Test if the username is present, by geting the localuser list and testing for the name.
 ```
 Get-LocalUser $USERNAME |Select-Object name | should be "@{Name=$USERNAME}"
+```
+
+## Firewall
+This command geteds the list of firewalls and filters the (Public, private and Domain) and checks if Enabled is true.
+```
+Get-NetFirewallProfile | where-object {$_.Profile -like "Public"} | Select-Object Enabled | should be "@{Enabled=True}"
+```
+
+## Virtual box guest additions
+
+```
+¯\_(ツ)_/¯
+```
+
+## GracePeriod
+This command gets the SoftwareLicensingProduct object then looks at the graceperiod in it in days rounds to a full day and tests if ist greater than 0
+```
+$info = Get-CimInstance -ClassName SoftwareLicensingProduct
+[math]::Round($($info.GracePeriodRemaining/24/60), 0) |
+should BeGreaterThan 0
 ```
 
 # Links and referenses
