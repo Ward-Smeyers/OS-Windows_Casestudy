@@ -88,11 +88,11 @@ Describe 'Microsoft Visual Studio Code is installed' {
 }
 
 
-# Microsoft Visual Studio Code is runing
-Describe 'Microsoft Visual Studio Code is runing' {
+# Microsoft Visual Studio Code is running
+Describe 'Microsoft Visual Studio Code is running' {
 
-# Look for Microsoft Visual Studio Code package
-    It 'Microsoft Visual Studio Code should be runing' {
+# Look for Microsoft Visual Studio Code process
+    It 'Microsoft Visual Studio Code should be running' {
     Get-Process "code" |
     Should Be $true
     }
