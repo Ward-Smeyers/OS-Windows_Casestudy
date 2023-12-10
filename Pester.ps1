@@ -50,6 +50,16 @@ Describe "Whether the firewall is on" {
     }
 }
 
+# Are VirtualBox Guest Additions installed
+# https://learn.microsoft.com/en-us/powershell/module/packagemanagement/get-package?view=powershellget-2.x
+Describe 'VirtualBox Guest Additions are installed' {
+
+    # Look for VirtualBox Guest Additions
+    It 'VirtualBox Guest Additions should be installed' {
+    get-package "Oracle VM VirtualBox Guest Additions 7.0.12" |
+    Should Be $true
+    }
+}
 
 # check if trile edition has expired
 Describe 'GracePeriod' {
