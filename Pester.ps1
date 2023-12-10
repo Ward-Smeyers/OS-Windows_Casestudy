@@ -2,7 +2,7 @@
 # NAT networking in Virtual Box is switched on
 Describe 'NAT networking in Virtual Box is switched on' {
 
-# NAT network
+    # NAT network
     It 'NAT should be on in VM' {
     Test-Connection -ComputerName 10.0.2.2 -Quiet -Count 1 |
     Should Be $true
@@ -12,7 +12,7 @@ Describe 'NAT networking in Virtual Box is switched on' {
 # Whether an Internet connection is possible
 Describe 'Whether an Internet connection is possible' {
 
-# Google DNS server
+    # Google DNS server
     It 'Google DNS server should be available' {
     Test-Connection -ComputerName 8.8.8.8 -Quiet -Count 1 |
     Should Be $true
@@ -90,7 +90,7 @@ Describe 'GracePeriod' {
 # https://learn.microsoft.com/en-us/powershell/module/packagemanagement/get-package?view=powershellget-2.x
 Describe 'Microsoft Visual Studio Code is installed' {
 
-# Look for Microsoft Visual Studio Code package
+    # Look for Microsoft Visual Studio Code package
     It 'Microsoft Visual Studio Code should be installed' {
     get-package "Microsoft Visual Studio Code (user)" |
     Should Be $true
@@ -101,7 +101,7 @@ Describe 'Microsoft Visual Studio Code is installed' {
 # Microsoft Visual Studio Code is running
 Describe 'Microsoft Visual Studio Code is running' {
 
-# Look for Microsoft Visual Studio Code process
+    # Look for Microsoft Visual Studio Code process
     It 'Microsoft Visual Studio Code should be running' {
     Get-Process "code" |
     Should Be $true
@@ -111,7 +111,7 @@ Describe 'Microsoft Visual Studio Code is running' {
 
 Describe 'https://sinners.be is available' {
 
-##  tests https://sinners.be is available server
+    # tests https://sinners.be is available server
     It 'sinners.be is available server should be available' {
     Test-Connection -ComputerName 193.191.186.133:80 is available -Quiet -Count 1 |
     Should Be $true
