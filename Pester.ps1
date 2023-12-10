@@ -50,16 +50,16 @@ Describe "Whether the firewall is on" {
     }
 }
 
-# Werkt niet !!!
+
 # check if trile edition has expired
-# Describe 'GracePeriod' {
+Describe 'GracePeriod' {
 
-#     it 'GracePeriod ' {
-#         $ts = Get-WmiObject -Class Win32_TerminalServiceSetting -Namespace "root\CIMV2\TerminalServices"
-#         $ts.GetGracePeriodDays() | should be -gt 0
-#     }
-# }
-
+    it 'Lisence should not be expired' {
+        $info = Get-CimInstance -ClassName SoftwareLicensingProduct
+        [math]::Round($($info.GracePeriodRemaining/24/60), 0) |
+        should BeGreaterThan 0
+    }
+}
 
 
 # If your keyboard layout is "Belgian (period) or not.
