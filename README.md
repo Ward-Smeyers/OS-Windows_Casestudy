@@ -21,7 +21,10 @@ This documentation was made with and for windows 10 enterprise. And goes over th
   - [Check username](#check-username)
   - [Firewall](#firewall)
   - [Virtual box guest additions](#virtual-box-guest-additions)
-  - [GracePeriod](#graceperiod)
+  - [Grace Period](#grace-period)
+  - [Keyboard Layout](#keyboard-layout)
+  - [Package installed](#package-installed)
+  - [Pocess running](#pocess-running)
 - [Links and referenses](#links-and-referenses)
 
 ## Details of het project
@@ -100,12 +103,54 @@ Get-NetFirewallProfile | where-object {$_.Profile -like "Public"} | Select-Objec
 ¯\_(ツ)_/¯
 ```
 
-## GracePeriod
+## Grace Period
 This command gets the SoftwareLicensingProduct object then looks at the graceperiod in it in days rounds to a full day and tests if ist greater than 0
 ```
 $info = Get-CimInstance -ClassName SoftwareLicensingProduct
 [math]::Round($($info.GracePeriodRemaining/24/60), 0) |
 should BeGreaterThan 0
+```
+
+## Keyboard Layout
+I did not get this to work. Where-Object can not filter on Languagetag.
+```
+Get-WinUserLanguageList | Where-Object {$_.Languagetag -like "nl-BE"}
+```
+And
+```
+Get-WinUserLanguageList
+```
+Return the same list:
+```
+LanguageTag     : en-BE
+Autonym         : English (Belgium)
+EnglishName     : English
+LocalizedName   : English (Belgium)
+ScriptName      : Latin
+InputMethodTips : {}
+Spellchecking   : True
+Handwriting     : False
+
+LanguageTag     : nl-BE
+Autonym         : Nederlands (België)
+EnglishName     : Dutch
+LocalizedName   : Dutch (Belgium)
+ScriptName      : Latin
+InputMethodTips : {0813:00000813}
+Spellchecking   : True
+Handwriting     : False
+```
+
+## Package installed
+Test if the package Visual Studio Code is installed
+```
+get-package "Microsoft Visual Studio Code (user)"
+```
+
+## Pocess running
+check the processes list for the processname "code" this is the process name for vscode.
+```
+Get-Process "code" 
 ```
 
 # Links and referenses
@@ -118,4 +163,4 @@ should BeGreaterThan 0
 
 [Current keyboard layout via cmd or powershell](https://community.spiceworks.com/topic/2240069-current-keyboard-layout-via-cmd-or-powershell)
 
-[Get-Package ](https://learn.microsoft.com/en-us/powershell/module/packagemanagement/get-package?view=powershellget-2.x)
+[Get-Package](https://learn.microsoft.com/en-us/powershell/module/packagemanagement/get-package?view=powershellget-2.x)
