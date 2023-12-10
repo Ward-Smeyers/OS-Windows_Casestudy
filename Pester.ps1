@@ -61,18 +61,19 @@ Describe 'GracePeriod' {
     }
 }
 
-
+# Does not work $_.Languagetag 
 # If your keyboard layout is "Belgian (period) or not.
 # https://community.spiceworks.com/topic/2240069-current-keyboard-layout-via-cmd-or-powershell
-try {
-    Write-Verbose "Searching for LanguageList"
-    Get-WinUserLanguageList | Where-Object {$_.Languagetag -like "nl-BE"}
-    Write-Verbose '"nl-BE" IS in LanguageList'
-}
 
-catch {
-    '"nl-BE" NOT in LanguageList' | Write-Error
-}
+# try {
+#     Write-Verbose "Searching for LanguageList"
+#     Get-WinUserLanguageList | Where-Object {$_.Languagetag -like "nl-BE"}
+#     Write-Verbose '"nl-BE" IS in LanguageList'
+# }
+
+# catch {
+#     '"nl-BE" NOT in LanguageList' | Write-Error
+# }
 
 
 # Microsoft Visual Studio Code is installed
